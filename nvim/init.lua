@@ -5,7 +5,7 @@ local g = vim.g
 
 -- <leader> key. Defaults to `\`. Some people prefer space.
 -- g.mapleader = ' '
--- g.maplocalleader = ' '
+ g.maplocalleader = ','
 
 opt.compatible = false
 
@@ -43,6 +43,8 @@ opt.undofile = true
 opt.splitright = true
 opt.splitbelow = true
 opt.cmdheight = 0
+
+opt.autochdir = true
 
 opt.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 
