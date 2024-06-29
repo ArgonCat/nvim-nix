@@ -5,6 +5,7 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     flake-utils.url = "github:numtide/flake-utils";
     gen-luarc.url = "github:mrcjkb/nix-gen-luarc-json";
+    neorg-overlay.url = "github:nvim-neorg/nixpkgs-neorg-overlay";
 
     # Add bleeding-edge plugins here.
     # They can be updated with `nix flake update` (make sure to commit the generated flake.lock)
@@ -19,6 +20,7 @@
     nixpkgs,
     flake-utils,
     gen-luarc,
+    neorg-overlay,
     ...
   }: let
     supportedSystems = [
@@ -41,6 +43,8 @@
           # containing the Neovim API all plugins in the workspace directory.
           # The generated file can be symlinked in the devShell's shellHook.
           gen-luarc.overlays.default
+
+          neorg-overlay.overlays.default
         ];
       };
       shell = pkgs.mkShell {

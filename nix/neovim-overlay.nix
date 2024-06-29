@@ -26,6 +26,10 @@ with final.pkgs.lib; let
   #   ...
   # }
   all-plugins = with pkgs.vimPlugins; [
+
+    neorg
+    neorg-telescope
+
     # plugins from nixpkgs go in here.
     # https://search.nixos.org/packages?channel=unstable&from=0&size=50&sort=relevance&type=packages&query=vimPlugins
     nvim-treesitter.withAllGrammars
@@ -81,11 +85,14 @@ with final.pkgs.lib; let
     # (mkNvimPlugin inputs.wf-nvim "wf.nvim") # (example) keymap hints | https://github.com/Cassin01/wf.nvim
     # ^ bleeding-edge plugins from flake inputs
 
+
     which-key-nvim
   ];
 
   extraPackages = with pkgs; [
     # language servers, etc.
+    lua51Packages.pathlib-nvim
+    lua51Packages.lua-utils-nvim
     lua-language-server
     nil # nix LSP
   ];
