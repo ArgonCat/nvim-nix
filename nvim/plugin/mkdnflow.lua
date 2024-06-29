@@ -17,9 +17,9 @@ require('mkdnflow').setup({
     filetypes = {md = true, rmd = true, markdown = true},
     create_dirs = true,
     perspective = {
-        priority = 'first',
+        priority = 'root',
         fallback = 'current',
-        root_tell = false,
+        root_tell = '.git',
         nvim_wd_heel = false,
         update = false
     },
