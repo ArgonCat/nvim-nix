@@ -47,15 +47,24 @@ require('mkdnflow').setup({
         create_on_follow_failure = true
     },
     new_file_template = {
-        use_template = false,
+        use_template = true,
+          template = [[
+# {{ title }}
+Date: {{ date }}
+Filename: {{ filename }}
+Categories: ]],
         placeholders = {
-            before = {
-                title = "link_title",
-                date = "os_date"
-            },
-            after = {}
+          before = {
+            date = function()
+                return os.date("%Y-%m-%d") -- YYYY/MM/DD
+            end
         },
-        template = "# {{ title }}"
+        after = {
+            filename = function()
+                return vim.api.nvim_buf_get_name(0)
+            end
+        }
+    }
     },
     to_do = {
         symbols = {' ', '-', 'X'},
