@@ -12,7 +12,7 @@ require('mkdnflow').setup({
         paths = true,
         tables = true,
         yaml = false,
-        cmp = false
+        cmp = true
     },
     filetypes = {md = true, rmd = true, markdown = true},
     create_dirs = true,

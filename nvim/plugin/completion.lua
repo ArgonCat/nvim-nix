@@ -117,6 +117,14 @@ cmp.setup {
   },
 }
 
+cmp.setup.filetype('markdown', {
+  sources = cmp.config.sources {
+    { name = 'mkdnflow' },
+    { name = 'nvim_lsp', keyword_length = 3 },
+    { name = 'path' },
+  },
+})
+
 cmp.setup.filetype('lua', {
   sources = cmp.config.sources {
     { name = 'nvim_lua' },
